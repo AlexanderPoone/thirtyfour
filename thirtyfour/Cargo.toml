@@ -38,9 +38,12 @@ debug_sync_quit = []
 
 
 [dependencies]
+selenium-manager = { git = "https://github.com/SeleniumHQ/selenium", branch = "trunk" }
 async-trait = "0.1.83"
 base64 = "0.22"
-futures-util = { version = "0.3.31", default-features = false, features = ["alloc"] }
+futures-util = { version = "0.3.31", default-features = false, features = [
+    "alloc",
+] }
 http = "1"
 indexmap = "2"
 paste = "1"
@@ -49,7 +52,7 @@ serde_json = { version = "1.0.132", features = ["preserve_order"] }
 serde_repr = "0.1.19"
 stringmatch = "0.4"
 thirtyfour-macros = { path = "../thirtyfour-macros", version = "0.2.0", optional = true }
-thiserror = "1.0.64"
+thiserror = "2.0.3"
 arc-swap = "1"
 tokio = { version = "1", features = [
     "rt",

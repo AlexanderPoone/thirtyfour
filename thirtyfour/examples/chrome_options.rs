@@ -6,6 +6,8 @@
 //!
 //!     cargo run --example chrome_options
 
+use std::{thread, time::Duration};
+
 use thirtyfour::prelude::*;
 
 #[tokio::main]
@@ -28,6 +30,8 @@ async fn main() -> color_eyre::Result<()> {
 
     // Navigate to https://wikipedia.org.
     driver.goto("https://wikipedia.org").await?;
+
+    thread::sleep(Duration::from_millis(10000));thread::sleep(Duration::from_millis(10000));
 
     // Always explicitly close the browser. This prevents the executor from being blocked
     driver.quit().await?;

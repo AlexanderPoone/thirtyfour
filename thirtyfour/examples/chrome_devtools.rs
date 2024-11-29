@@ -6,6 +6,9 @@
 //!
 //!     cargo run --example chrome_devtools
 
+use std::thread;
+use std::time::Duration;
+
 use thirtyfour::extensions::cdp::{ChromeDevTools, NetworkConditions};
 use thirtyfour::prelude::*;
 
@@ -32,6 +35,8 @@ async fn main() -> color_eyre::Result<()> {
     // Execute CDP command.
     let version_info = dev_tools.execute_cdp("Browser.getVersion").await?;
     println!("Chrome Version: {:?}", version_info);
+
+    thread::sleep(Duration::from_millis(10000));
 
     // Always explicitly close the browser. This prevents the executor from being blocked
     driver.quit().await?;

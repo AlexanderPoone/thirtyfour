@@ -6,6 +6,8 @@
 //!
 //!     cargo run --example minimal_async
 
+use std::{thread, time::Duration};
+
 use thirtyfour::prelude::*;
 
 #[tokio::main]
@@ -28,6 +30,8 @@ async fn main() -> WebDriverResult<()> {
     let elem_button = elem_form.find(By::Css("button[type='submit']")).await?;
     elem_button.click().await?;
 
+    thread::sleep(Duration::from_millis(10000));
+    
     // Always explicitly close the browser. This prevents the executor from being blocked
     driver.quit().await?;
 
